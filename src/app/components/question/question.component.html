@@ -1,0 +1,11 @@
+<div fxLayoutAlign="center" class="question-box"  (click)="copyQuestion()">
+    <mat-spinner *ngIf="isLoading" color="accent"></mat-spinner>
+    <div *ngIf="!isLoading">
+        {{question.question}} 
+        <div class="comment">(Click to Copy)</div>
+    </div>
+</div>
+<div class="button-box" fxLayoutAlign="space-evenly">
+    <button type="button" (click)="getRQuestion()" mat-raised-button color="warn">Random R Question</button>
+    <button type="button" (click)="getPGQuestion()" mat-raised-button color="accent">Random PG Question</button>
+</div>
