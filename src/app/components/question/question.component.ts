@@ -35,8 +35,15 @@ export class QuestionComponent implements OnInit {
     });
   }
 
-  getRQuestion() {
-    this.getQuestion(678, 873);
+  getRQuestion() {    
+    this.isLoading = true;
+    const random = this.getRandom(1,664);
+    console.log('id', random);
+    this.sub = this.db.getRQuestion(random).subscribe(data => {
+      console.log(data);
+      this.question = data[0] as Question;
+      this.isLoading = false;
+    });
   }
 
   getPGQuestion() {
